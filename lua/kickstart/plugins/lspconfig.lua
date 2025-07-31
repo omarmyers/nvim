@@ -224,13 +224,13 @@ return {
       }
 
       --java
-      vim.g.jdtls = {
-        settings = {
-          config = {
-            output,
-          },
-        },
-      }
+      -- vim.g.jdtls = {
+      --   settings = {
+      --     config = {
+      --       -- configuration goes here
+      --     },
+      --   },
+      -- }
 
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -298,7 +298,7 @@ return {
 
       require('mason-lspconfig').setup {
         ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-        automatic_installation = false,
+        automatic_enable = false,
         handlers = {
           function(server_name)
             -- Skip servers handled by other plugins
