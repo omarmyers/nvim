@@ -3,21 +3,44 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      local cp = require('catppuccin.palettes').get_palette 'mocha'
+      local function get_theme_and_colors()
+        local colorscheme = vim.g.colors_name
+        
+        if colorscheme and colorscheme:find('catppuccin') then
+          local variant = colorscheme:match('catppuccin%-(%w+)') or 'mocha'
+          local cp = require('catppuccin.palettes').get_palette(variant)
+          return 'catppuccin', {
+            bg = cp.mantle,
+            fg = cp.text,
+            red = cp.red,
+            yellow = cp.yellow,
+            green = cp.green,
+            blue = cp.blue,
+            magenta = cp.mauve,
+            cyan = cp.teal,
+            violet = cp.lavender,
+            black = cp.crust,
+            grey = cp.surface0,
+          }
+        else
+          -- Use the theme name directly for other themes, with fallback colors
+          return colorscheme or 'auto', {
+            bg = '#1e1e2e',
+            fg = '#cdd6f4',
+            red = '#f38ba8',
+            yellow = '#f9e2af',
+            green = '#a6e3a1',
+            blue = '#89b4fa',
+            magenta = '#cba6f7',
+            cyan = '#94e2d5',
+            violet = '#b4befe',
+            black = '#11111b',
+            grey = '#313244',
+          }
+        end
+      end
 
-      local colors = {
-        bg = cp.base,
-        fg = cp.text,
-        red = cp.red,
-        yellow = cp.yellow,
-        green = cp.green,
-        blue = cp.blue,
-        magenta = cp.mauve,
-        cyan = cp.teal,
-        violet = cp.lavender,
-        black = cp.crust,
-        grey = cp.surface0,
-      }
+      local theme_name, colors = get_theme_and_colors()
 
       local lualine_theme = {
         normal = {
@@ -44,9 +67,21 @@ return {
         },
       }
 
-      require('lualine').setup {
-        options = {
-          theme = lualine_theme,
+      local function setup_lualine()
+        local theme_name, colors = get_theme_and_colors()
+        
+        -- Use built-in theme if available, otherwise use custom theme
+        local lualine_theme_option
+        if theme_name == 'catppuccin' then
+          lualine_theme_option = lualine_theme
+        else
+          -- Try to use built-in theme, fall back to auto
+          lualine_theme_option = theme_name
+        end
+
+        require('lualine').setup {
+          options = {
+            theme = lualine_theme_option,
           section_separators = { left = '', right = '' },
           component_separators = { left = '', right = '' },
           icons_enabled = true,
@@ -60,7 +95,7 @@ return {
               symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
               diff_color = {
                 added = { fg = colors.green },
-                modified = { fg = cp.peach },
+                modified = { fg = colors.yellow },
                 removed = { fg = colors.red },
               },
             },
@@ -111,6 +146,15 @@ return {
         tabline = {},
         extensions = {},
       }
+      end
+
+      -- Initial setup
+      setup_lualine()
+
+      -- Auto-update lualine when colorscheme changes
+      vim.api.nvim_create_autocmd('ColorScheme', {
+        callback = setup_lualine,
+      })
     end,
   },
 }

@@ -2,12 +2,12 @@ return {
   {
     'catppuccin/nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
-    lazy = false,
+    -- lazy = false,
     name = 'catppuccin-mocha',
     config = function()
       require('catppuccin').setup {
         flavour = 'mocha',
-        transparent_background = false,
+        transparent_background = true,
         integrations = {
           aerial = true,
           alpha = true,
@@ -46,26 +46,18 @@ return {
           treesitter_context = true,
           which_key = true,
         },
-        specs = {
-          {
-            'akinsho/bufferline.nvim',
-            optional = true,
-            opts = function(_, opts)
-              if (vim.g.colors_name or ''):find 'catppuccin' then
-                opts.highlights = require('catppuccin.groups.integrations.bufferline').get()
-              end
-            end,
-          },
-        },
       }
     end,
   },
   {
-    'shaunsingh/nord.nvim',
+    'gbprod/nord.nvim',
+    lazy = false,
     priority = 1000,
-    -- lazy = false,
     config = function()
-      -- vim.cmd.colorscheme 'nord'
+      require('nord').setup {
+        transparent = true,
+      }
+      -- vim.cmd.colorscheme('nord')
     end,
   },
   {
