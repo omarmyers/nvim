@@ -5,8 +5,8 @@ return {
     require('claude-code').setup {
       -- Window settings
       window = {
-        split_ratio = 0.3,
-        position = 'vertical',
+        -- split_ratio = 0.3,
+        position = 'vsplit',
       },
 
       -- Command settings
@@ -30,10 +30,10 @@ return {
       -- Keymaps
       keymaps = {
         toggle = {
-          normal = '<leader>tc', -- Normal mode keymap for toggling Claude Code
+          normal = '<leader>cc', -- Normal mode keymap for toggling Claude Code
           terminal = '<C-,>', -- Terminal mode keymap for toggling Claude Code
           variants = {
-            continue = '<leader>tC', -- Normal mode keymap for Claude Code with continue flag
+            continue = '<leader>cC', -- Normal mode keymap for Claude Code with continue flag
             verbose = '<leader>cV', -- Normal mode keymap for Claude Code with verbose flag
             resume = '<leader>cR', -- Normal mode keymap for Claude Code with resume flag
           },
@@ -50,8 +50,8 @@ return {
   },
   -- Load on these key mappings
   keys = {
-    { '<leader>tc', desc = 'Toggle Claude Code' },
-    { '<leader>tC', desc = 'Continue Claude Code' },
+    { '<leader>cc', desc = 'Toggle Claude Code' },
+    { '<leader>cC', desc = 'Continue Claude Code' },
     { '<leader>cV', desc = 'Claude Code Verbose' },
     { '<leader>cR', desc = 'Resume Claude Code' },
   },
