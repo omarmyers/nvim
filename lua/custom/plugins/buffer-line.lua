@@ -5,7 +5,8 @@ return {
       local function get_theme_highlights()
         local colorscheme = vim.g.colors_name
         if colorscheme and colorscheme:find('catppuccin') then
-          return require('catppuccin.groups.integrations.bufferline').get()
+          local catppuccin = require('catppuccin')
+          return catppuccin.bufferline and catppuccin.bufferline or {}
         else
           -- Use default highlights for other themes
           return {}

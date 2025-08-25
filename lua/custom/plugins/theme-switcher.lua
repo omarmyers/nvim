@@ -9,7 +9,6 @@ return {
           'tokyonight-night',
           'tokyonight-storm',
           'catppuccin-mocha',
-          'catppuccin-frappe',
           'catppuccin-macchiato',
           'everforest',
           'nord',
