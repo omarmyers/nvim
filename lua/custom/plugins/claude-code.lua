@@ -30,10 +30,10 @@ return {
       -- Keymaps
       keymaps = {
         toggle = {
-          normal = '<leader>cc', -- Normal mode keymap for toggling Claude Code
+          normal = '<leader>cn', -- Normal mode keymap for toggling Claude Code
           terminal = '<C-,>', -- Terminal mode keymap for toggling Claude Code
           variants = {
-            continue = '<leader>cC', -- Normal mode keymap for Claude Code with continue flag
+            continue = '<leader>cc', -- Normal mode keymap for Claude Code with continue flag
             verbose = '<leader>cV', -- Normal mode keymap for Claude Code with verbose flag
             resume = '<leader>cR', -- Normal mode keymap for Claude Code with resume flag
           },
@@ -50,8 +50,8 @@ return {
   },
   -- Load on these key mappings
   keys = {
-    { '<leader>cc', desc = 'Toggle Claude Code' },
-    { '<leader>cC', desc = 'Continue Claude Code' },
+    { '<leader>cn', desc = 'New Claude Code Session' },
+    { '<leader>cc', desc = 'Continue Claude Code Session' },
     { '<leader>cV', desc = 'Claude Code Verbose' },
     { '<leader>cR', desc = 'Resume Claude Code' },
   },
