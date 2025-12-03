@@ -10,6 +10,7 @@ return {
           'tokyonight-storm',
           'catppuccin-mocha',
           'catppuccin-macchiato',
+          'cyberdream',
           'everforest',
           'nord',
           'oxocarbon',

@@ -106,7 +106,15 @@ return {
           -- wo = { wrap = true } -- Wrap notifications
         },
       },
-      terminal = { enabled = true },
+      terminal = {
+        enabled = true,
+        win = {
+          position = 'float',
+          width = 0.8,
+          height = 0.8,
+          border = 'single',
+        },
+      },
     },
     -- stylua: ignore
     keys = {
