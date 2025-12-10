@@ -10,6 +10,7 @@ return {
   },
   keys = {
     { '<leader>a', nil, desc = 'Claude Code' },
+    { '<C-.>', '<cmd>ClaudeCode<cr>', mode = { 'n', 't' }, desc = 'Toggle Claude' },
     { '<leader>af', '<cmd>ClaudeCodeFocus<cr>', desc = 'Focus Claude', mode = { 'n', 'x' } },
     { '<leader>an', '<cmd>ClaudeCode<cr>', desc = 'New Claude' },
     { '<leader>ac', '<cmd>ClaudeCode --continue<cr>', desc = 'Continue Claude' },
