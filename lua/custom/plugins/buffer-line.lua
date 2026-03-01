@@ -4,8 +4,8 @@ return {
     config = function()
       local function get_theme_highlights()
         local colorscheme = vim.g.colors_name
-        if colorscheme and colorscheme:find('catppuccin') then
-          local catppuccin = require('catppuccin')
+        if colorscheme and colorscheme:find 'catppuccin' then
+          local catppuccin = require 'catppuccin'
           return catppuccin.bufferline and catppuccin.bufferline or {}
         else
           -- Use default highlights for other themes
@@ -17,7 +17,7 @@ return {
         highlights = get_theme_highlights(),
         options = {
           diagnostics = 'nvim_lsp',
-          show_buffer_close_icons = false,
+          -- show_buffer_close_icons = true,
           numbers = 'ordinal',
         },
       }
@@ -29,7 +29,7 @@ return {
             highlights = get_theme_highlights(),
             options = {
               diagnostics = 'nvim_lsp',
-              show_buffer_close_icons = false,
+              -- show_buffer_close_icons = true,
               numbers = 'ordinal',
             },
           }

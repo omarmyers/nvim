@@ -4,7 +4,7 @@ return {
     event = 'BufEnter',
     keys = {
       {
-        '<leader>tw',
+        '<leader>ta',
         function()
           vim.cmd 'Codeium Toggle'
           vim.defer_fn(function()

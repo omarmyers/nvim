@@ -4,13 +4,13 @@ return {
   opts = {
     terminal_cmd = '~/.claude/local/claude', -- Point to local installation
     terminal = {
-      split_side = 'left',
+      split_side = 'right',
       split_width_percentage = 0.3,
     },
   },
   keys = {
-    { '<leader>a', nil, desc = 'Claude Code' },
-    { '<C-.>', '<cmd>ClaudeCode<cr>', mode = { 'n', 't' }, desc = 'Toggle Claude' },
+    -- { '<leader>a', nil, desc = 'Claude Code' },
+    { '<C-;>', '<cmd>ClaudeCode<cr>', mode = { 'n', 't' }, desc = 'Toggle Claude' },
     { '<leader>af', '<cmd>ClaudeCodeFocus<cr>', desc = 'Focus Claude', mode = { 'n', 'x' } },
     { '<leader>an', '<cmd>ClaudeCode<cr>', desc = 'New Claude' },
     { '<leader>ac', '<cmd>ClaudeCode --continue<cr>', desc = 'Continue Claude' },

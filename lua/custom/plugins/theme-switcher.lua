@@ -21,7 +21,7 @@ return {
       }
 
       -- Keybinding
-      vim.keymap.set('n', '<leader>ts', ':Themery<CR>', { desc = 'Theme Switcher' })
+      vim.keymap.set('n', '<leader>tc', ':Themery<CR>', { desc = 'Theme Switcher' })
     end,
   },
 }
